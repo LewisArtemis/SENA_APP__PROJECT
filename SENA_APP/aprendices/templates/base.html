@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+           background-color: #bdddc4;
+           margin: 0;
+           padding: 0;
+           display: flex;
+           flex-direction: column;
+        }
+
+        main{
+            flex: 1;
+            padding: 20px;
+        }
+
+        .header{
+            background-color: #0e2016;
+            height: 150px;
+            width : 100%;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .nav-bottom{
+            background-color: #2f6c46;
+            width : 100%;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .footer{
+            background-color: #0e2016;
+            width : 100%;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        li {
+            list-style-type: none;
+            color: #000000ff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+    </style>
+
+</head>
+<body>
+    
+    <header class="header">
+        <h1>SENA APP</h1>
+    </header>
+
+        <nav class="nav-bottom">
+            <a href="aprendices/" class="btn btn-primary">Consultar</a>
+            <a href="admin/" class="btn btn-primary">Ir al panel</a>
+        </nav>
+<br>
+{% block content %} {% endblock%}
+<br>
+    <footer class="footer">
+        <p>&copy; 2025 Mi sitio web</p>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>

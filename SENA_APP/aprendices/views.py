@@ -12,3 +12,8 @@ def aprendices(request):
         'total_aprendices': lista_aprendices.count(),
     }
     return HttpResponse(template.render(context, request))
+
+
+def inicio(request):
+    template = loader.get_template('inicio.html')
+    return HttpResponse(template.render())
