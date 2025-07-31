@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} Lista de Instructores{% endblock%}
+
+{% block content%}
+
+<div>
+
+<ul>
+  {% for x in lista_instructores %}
+
+<br>
+
+<div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        
+        <h5 class="card-title"><i class="bi bi-person-circle" >{{ x.nombre }}</i></h5>
+        <p class="card-text">{{ x.ficha}}.</p>
+        <a href="{% url 'admin:instructores_instructor_change' x.id %}" class="btn btn-primary">Editar</a>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+{% endfor%}
+
+
+{% endblock%}
