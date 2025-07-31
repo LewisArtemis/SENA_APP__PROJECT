@@ -1,0 +1,62 @@
+{% extends "base.html"  %}
+
+
+{% block title %} Lista de Programas{% endblock %}
+
+{% block content %}
+
+<ul>
+{% for x in lista_programas %}
+
+<div class="card" style="
+            width: 15rem; 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 20px 15px;
+            background: white;
+            border-radius: 8px;
+
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;">
+
+  <img src="https://dical.es/modules/ph_simpleblog/featured/18.jpg" class="card-img-top" alt="libros" width="150px" style="width: 100%;
+            height: 200px;
+            border-radius: 6px;
+            object-fit: cover;
+            margin-bottom: 15px;">
+
+  <div class="card-body">
+    <h4 class="card-title" style="color: #333;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 8px;">{{ x.codigo }}</h4>
+
+    <p class="card-text" style="color: #666;
+            font-size: 19px;
+            margin-bottom: 15px;
+            line-height: 1.4;">{{ x.nombre }}</p>
+    <a href="{% url 'admin:programas_programa_change' x.id %}" class="btn btn-primary" style="background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+            width: 100%;
+            transition: background 0.3s ease;
+            ">Editar</a>
+  </div>
+  <br>
+</div>
+<br>
+{% endfor %}
+</ul>
+
+
+
+{% endblock %}
