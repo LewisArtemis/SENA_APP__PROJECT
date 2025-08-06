@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card" style="width: 120rem;  
+            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 20px 15px;
+            background: white;
+            border-radius: 8px;
+
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;">
+
+  <img src="https://dical.es/modules/ph_simpleblog/featured/18.jpg" class="card-img-top" alt="libros" width="300px" height="200px">
+  <div class="card-body">
+    <h3 class="card-title">{{ curso.nombre}}</h3>
+
+    <br>
+  
+    <ul class="list-group list-group-flush">
+        <li >Programa: {{ curso.programa}}</li>
+        <br>
+        <li >Codigo: {{ curso.codigo}}</li>
+        <br>
+        <li >Estado: {{ curso.estado}}</li>
+        <br>
+        <li >Ambiente: {{ curso.aula}}</li>
+        <br>
+        <li >Horario: {{ curso.horario}}</li>
+        <br>
+        <li >Fecha inicio: {{ curso.fecha_inicio}}</li>
+        <br>
+        <li >Fecha fin: {{ curso.fecha_fin}}</li>
+        <br>
+        {% if curso.observaciones %}
+        <li >Observaciones: {{ curso.observaciones}}</li>
+        {% endif %}
+        <br>
+    </ul>
+    
+    <div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Aprendices Registrados</h4>
+        <hr>
+        <span class="badge bg-white text-success">{{ aprendices_curso|length }} aprendices</span>
+        
+        {% for aprendiz in aprendices_curso %}
+        <ul>
+            <li>{{ aprendiz}}</li>
+        </ul>
+        {% endfor %}    
+
+        <a href="{% url 'aprendices:lista_aprendices' %}" class="btn btn-primary">Ver todos</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Instructores del curso</h4>
+        <hr>
+        <span class="badge bg-white text-success">{{ instructores_curso|length }} instructor</span>
+        
+        {% for instructor in instructores_curso %}
+
+        <ul>
+            <li>{{ instructor}}</li>
+        </ul>
+        {% endfor %}    
+
+        <a href="{% url 'instructores:lista_instructores' %}" class="btn btn-primary">Ver todos</a>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

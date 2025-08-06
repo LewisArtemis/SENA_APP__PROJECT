@@ -5,6 +5,7 @@
 
 {% block content %}
 
+{% if lista_programas %}
 <ul>
 {% for x in lista_programas %}
 
@@ -56,7 +57,31 @@
 <br>
 {% endfor %}
 </ul>
+{% else %}
 
+<div class="card" style=" width: 15rem; 
+            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 20px 15px;
+            background: white;
+            border-radius: 8px;
+
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;">
+    <br>
+  <h5 class="card-header" style="font-size: 30px">No se encontraron Programas</h5>
+  <div class="card-body">
+    <p class="card-text">Para poder visualizar Programas, por favor registre un programa.</p>
+    <a href="{% url 'admin:programas_programa_add' %}" class="btn btn-primary">Añadir</a>
+  </div>
+</div>
+
+{% endif%}
 
 
 {% endblock %}
