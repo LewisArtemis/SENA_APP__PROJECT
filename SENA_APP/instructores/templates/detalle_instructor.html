@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalles Instructor - SENA APP{% endblock %}
+
+{% block content %}
+
+<div class="card" style="width: 120rem;  
+            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 20px 15px;
+            background: white;
+            border-radius: 8px;
+
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;">
+
+  <img src="https://dical.es/modules/ph_simpleblog/featured/18.jpg" class="card-img-top" alt="libros" width="300px" height="200px">
+  <div class="card-body">
+
+     <h3 class="text-primary">{{ instructor.nombre }}</h3>
+
+     {% if instructor.activo %}
+        <span class="badge bg-success">
+            <i class="bi bi-check-circle me-1"></i>Activo
+        </span>
+    {% else %}
+        <span class="badge bg-danger">
+            <i class="bi bi-x-circle me-1"></i>Inactivo
+        </span>
+    {% endif %}
+    <br>
+  
+    <ul class="list-group list-group-flush">
+        <li >Documento identidad: {{ instructor.documento_identidad}}</li>
+        <br>
+        <li >Especialidad: {{ instructor.Nivel_educativo_choice }}</li>
+        <br>
+        <li >Correo: {{ instructor.correo}}</li>
+        <br>
+        <li >Ciudad: {{ instructor.ciudad }}</li>
+        <br>
+    </ul>
+
+    <div class="row">
+  <div class="col-sm-10 mb-12 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Cursos Coordinados</h5>
+        
+        <span class="badge bg-white text-success">{{ cursos_coordinados|length}} cursos</span>
+        
+        {% if cursos_coordinados %}
+        {% for cursos in cursos_coordinados %}
+
+        <h6>{{ curso.nombre }}</h6>
+        <i>{{curso.codigo}}</i>
+        <div>
+            <span class="badge badge-sena">Coordinador</span>
+        </div>
+        {% endfor %}
+
+        {% else %}
+        <p>No hay cursos coordinados</p>
+        {% endif %}
+      </div>
+    </div>
+    <br>
+    <div class="row">
+  <div class="col-sm-10 mb-12 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Cursos Impartidos</h5>
+        
+        <span class="badge bg-white text-success">{{ cursos_impartidos|length}} cursos</span>
+        
+        {% if cursos_impartidos %}
+        {% for cursos in cursos_impartidos %}
+
+        <h6>{{ curso.nombre }}</h6>
+        <i>{{curso.codigo}}</i>
+        <div>
+            <span class="badge badge-sena">Instructor</span>
+        </div>
+        {% endfor %}
+
+        {% else %}
+        <p>No imparte cursos actualmente</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <br>
+  
+</div>
+  </div>
+</div>
+  </div>
+</div>
+
+
+
+{% endblock %}

@@ -2,6 +2,8 @@ from .models import Aprendiz, Curso
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404
+from instructores.models import Instructor
+from programas.models import Programa
 
 # Create your views here.
 
@@ -53,3 +55,13 @@ def detalle_curso(request, curso_id):
         'instructores_curso': instructores_curso,
     }
     return HttpResponse(template.render(context, request))
+
+def detalle_aprendiz(request, aprendiz_id):
+    aprendiz = get_object_or_404(Aprendiz, id=aprendiz_id)
+    template = loader.get_template('detalle_aprendiz.html')
+    
+    context = {
+        'aprendiz': aprendiz,
+    }
+    return HttpResponse(template.render(context, request))
+

@@ -16,6 +16,7 @@
     <div class="card">
       <div class="card-body">
         <li>{{ x.nombre }} {{ x.apellido }}  <br> {{ x.programa}}</li>
+        <a href= "{% url 'aprendices:detalle_aprendiz' x.pk %}" class="btn btn-primary">Ver detalle</a>
       </div>
     </div>
   </div>

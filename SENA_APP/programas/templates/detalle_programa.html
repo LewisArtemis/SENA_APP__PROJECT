@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="card" style="width: 120rem;  
+            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 20px 15px;
+            background: white;
+            border-radius: 8px;
+
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;">
+
+  <img src="https://dical.es/modules/ph_simpleblog/featured/18.jpg" class="card-img-top" alt="libros" width="300px" height="200px">
+  <div class="card-body">
+    <h3 class="card-title">Informacion Principal del Programa</h3>
+
+    <br>
+  
+    <ul class="list-group list-group-flush">
+        <li >Nombre del Programa: {{ programa.nombre}}</li>
+        <br>
+        <li >Codigo: {{ programa.codigo}}</li>
+        <br>
+        <li >Nivel de Formación: <span >{{ programa.get_nivel_formacion_display }}</span></li>
+        <br>
+        <li >Modalidad: <span>{{ programa.get_modalidad_display }}</span></li>
+        <br>
+        <li >Centro de Formación: {{ programa.centro_formacion }}</li>
+        <br>
+        
+    </ul>
+    
+   <div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Detalles del Programa</h5>
+        <hr>
+        <p class="card-text">Duracion del programa</p>
+        <p class="card-text">{{programa.duracion_meses}} meses.</p>
+        <p class="card-text">{{programa.duracion_horas}} horas.</p>
+        <hr>
+        <p class="card-text">Creación</p>
+        <p class="card-text">{{programa.fecha_creacion|date:"d/m/y"}}</p>
+        <hr>
+        <p class="card-text">Registro</p>
+        <p class="card-text">{{programa.fecha_registro|date:"d/m/y"}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Cursos del Programa</h5>
+        <hr>
+         <span class="badge bg-white text-success">{{ cursos|length }} cursos</span>
+
+         {% if cursos %}
+        {% for Curso in cursos %}
+         <p class="card-text">Nombre curso: {{Curso.nombre}}</p>
+         <p class="card-text">Codigo: {{Curso.codigo}}</p>
+         <p class="card-text">Estado: <span >{{ programa.get_estado_display }}</span></li></p>
+        {% endfor %}
+         {% else %}
+         <div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <p class="card-text">No hay cursos registrados en este programa</p>
+        <p class="card-text">este programa no tiene cursos asociados</p>
+      </div>
+    </div>
+  </div>
+         {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<br>
+  </div>
+</div>
+
+
+    
+{% endblock %}

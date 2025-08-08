@@ -20,6 +20,7 @@
         
         <h5 class="card-title"><i class="bi bi-person-circle" >{{ x.nombre }}</i></h5>
         <p class="card-text">{{ x.ficha}}.</p>
+        <a href= "{% url 'instructores:detalle_instructor' x.id %}" class="btn btn-primary">Ver detalle</a>
         <a href="{% url 'admin:instructores_instructor_change' x.id %}" class="btn btn-primary">Editar</a>
       </div>
     </div>
