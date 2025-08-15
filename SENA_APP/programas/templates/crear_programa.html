@@ -27,25 +27,12 @@
         <div>
             <div>
                 <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.nivel_formacion.label }}<span class="text-danger">*</span></label>
-                <select>
-                    <option value="">Seleccione el nivel</option>
-                    <option value='AUX'>Auxiliar</option>
-                    <option value='OPE'>Operario</option>
-                    <option value='TEC'>Técnico</option>
-                    <option value='TGL'>Tecnólogo</option>
-                    <option value='ESP'>Especialización</option>
-                    <option value='COM'>Complementario</option>
-                </select>
+                {{ form.nivel_formacion }}
             </div>
             <br>
             <div>
                 <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.modalidad.label }}<span class="text-danger">*</span></label>
-                <select>
-                    <option value="">Seleccione la modalidad</option>
-                    <option value='PRE'>Presencial</option>
-                    <option value='VIR'>Virtual</option>
-                    <option value='MIX'>Mixta</option>
-                </select>
+                {{ form.modalidad }}
             </div>
         </div>
         <br>
@@ -74,13 +61,7 @@
             <br>
             <div>
                 <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.estado.label }}<span class="text-danger">*</span></label>
-                <select>
-                    <option value="">Seleccione el estado</option>
-                    <option value='ACT'>Activo</option>
-                    <option value='INA'>Inactivo</option>
-                    <option value='SUS'>Suspendido</option>
-                    <option value='CAN'>Cancelado</option>
-                </select>
+                {{ form.estado }}
             </div>
             <br>
             <div>

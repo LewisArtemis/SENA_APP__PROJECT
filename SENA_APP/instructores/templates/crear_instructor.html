@@ -12,8 +12,9 @@
         {% csrf_token %}
         <div>
             <div>
-                 <label>{{ form.Tipo_documento.label }}<span class="text-danger">*</span></label>
-                {{ form.Tipo_documento }}
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.tipo_documento.label }}<span class="text-danger">*</span></label>
+                {{ form.tipo_documento }}
+                
             </div>
             <br>
             <div>
@@ -27,21 +28,71 @@
         <div>
             <div>
                 <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.nombre.label }}<span class="text-danger">*</span></label>
-                {{ form.nombre}}
+                {{ form.nombre }}
             </div>
-        <br>
+            <br>
             <div>
                 <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.apellido.label }}<span class="text-danger">*</span></label>
-                {{ form.apellido}}
+                {{ form.apellido }}
             </div>
         </div>
-
         <br>
-
         <div>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.telefono.label }}<span class="text-danger">*</span></label>
+                {{ form.telefono }}
+            </div>
+            <br>
             <div>
                 <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.correo.label }}<span class="text-danger">*</span></label>
                 {{ form.correo}}
+            </div>
+        </div>
+        <br>
+        <div>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.ciudad.label }}<span class="text-danger">*</span></label>
+                {{ form.ciudad}}
+            </div>
+            <br>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.direccion.label }}<span class="text-danger">*</span></label>
+                {{ form.direccion}}
+            </div>
+            <br>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.nivel_educativo.label }}<span class="text-danger">*</span></label>
+                {{ form.nivel_educativo }}
+            </div>
+            <br>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.especialidad.label }}<span class="text-danger">*</span></label>
+                {{ form.especialidad}}
+            </div>
+            <br>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.anos_experiencia.label }}<span class="text-danger">*</span></label>
+                {{ form.anos_experiencia}}
+            </div>
+            <br>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.activo.label }}<span class="text-danger">*</span></label>
+                {{ form.activo }}
+                
+            </div>
+            <br>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.fecha_vinculacion.label }}<span class="text-danger">*</span></label>
+                {{ form.fecha_vinculacion}}
+            </div>
+        </div>
+        <br>
+        <div>
+            <div>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.fecha_registro.label }}<span class="text-danger">*</span></label>
+                {{ form.fecha_registro }}
+                
             </div>
             <br>
             <div>
@@ -49,54 +100,13 @@
                 {{ form.fecha_nacimiento}}
             </div>
         </div>
-
-        <br>
-        <div>
-            <div>
-                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.anios_experiencia.label }}<span class="text-danger">*</span></label>
-                {{ form.anios_experiencia}}
-            </div>
-            <br>
-            <div>
-                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.ciudad.label }}<span class="text-danger">*</span></label>
-                {{ form.ciudad}}
-            </div>
         </div>
-
-        <br>
-
-        <div>
-            <div>
-                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.programa.label }}<span class="text-danger">*</span></label>
-                {{ form.programa}}
-            </div>
-            <br>
-            <div>
-                <label>{{ form.Nivel_educativo.label }}<span class="text-danger">*</span></label>
-                {{ form.Nivel_educativo }}
-            </div>
-        </div>
-
-        <br>
-        <div>
-            <div>
-                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.ficha.label }}<span class="text-danger">*</span></label>
-                {{ form.ficha}}
-            </div>
-            <br>
-            <div>
-                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.activo.label }}<span class="text-danger">*</span></label>
-                {{ form.activo}}
-            </div>
-            
-        </div>
-        
         <br>
         <div style="text-align: center;">
-            <a href="{% url 'instructores:lista_instructores' %}" style="margin-right: 15px;">
+            <a href="{% url 'programas:lista_programas' %}" style="margin-right: 15px;">
                 <i></i>Cancelar
             </a>
-            <button "{% url 'instructores:crear_instructor'%}" class="btn btn-primary"><i></i>Guardar Instructor</button>
+            <button class="btn btn-primary"><i></i>Guardar Instructor</button>
         </div>
     </form>
     
@@ -110,20 +120,6 @@
   </div>
 </div>
 
-{% if form.errors %}
-    <div class="alert alert-danger">
-        <h6><i class="fas fa-exclamation-triangle"></i> Por favor corrija los siguientes errores:</h6>
-        <ul class="mb-0">
-        {% for field in form %}
-            {% for error in field.errors %}
-                <li><strong>{{ field.label }}:</strong> {{ error }}</li>
-            {% endfor %}
-        {% endfor %}
-        {% for error in form.non_field_errors %}
-            <li>{{ error }}</li>
-        {% endfor %}
-        </ul>
-    </div>
-{% endif %}
+
 
 {% endblock %}

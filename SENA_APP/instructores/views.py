@@ -37,21 +37,23 @@ class InstructorFormView(FormView):
     template_name = 'crear_instructor.html'
     form_class = InstructorForm
     success_url = "../instructores/"
-    
+
     def form_valid(self, form):
-        #guardar el instructor
+        # Guardar el instructor
         instructor = form.save()
         
-        #agregar mensaje de exito
+        # Agregar mensaje de éxito
         messages.success(
-            self.request,
+            self.request, 
             f'El instructor {instructor.nombre} {instructor.apellido} ha sido registrado exitosamente.'
         )
+        
         return super().form_valid(form)
-    
+
     def form_invalid(self, form):
         messages.error(
-            self.request,
-            'por favor, corrija los errores en el formulario.'
+            self.request, 
+            'Por favor, corrija los errores en el formulario.'
         )
         return super().form_invalid(form)
+

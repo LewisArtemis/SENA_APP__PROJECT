@@ -31,26 +31,12 @@ def detalle_programa(request, programa_id):
     }
     return HttpResponse(template.render(context, request))
 
-class ProgramaFormView(FormView):
+class ProgramaFormView(generic.FormView):
     template_name = 'crear_programa.html'
     form_class = ProgramaForm
-    success_url = "../programas/"
-
+    success_url = '../programas/'
+    
+    #metodo para guardar el formulario
     def form_valid(self, form):
-        # Guardar el instructor
-        programa = form.save()
-        
-        # Agregar mensaje de éxito
-        messages.success(
-            self.request, 
-            f'El instructor {programa.nombre} {programa.apellido} ha sido registrado exitosamente.'
-        )
-        
+        form.save()
         return super().form_valid(form)
-
-    def form_invalid(self, form):
-        messages.error(
-            self.request, 
-            'Por favor, corrija los errores en el formulario.'
-        )
-        return super().form_invalid(form)

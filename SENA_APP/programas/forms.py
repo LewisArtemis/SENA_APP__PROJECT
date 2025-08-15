@@ -31,20 +31,16 @@ class ProgramaForm(forms.Form):
         return codigo
     
     def save(self):
-        try:
-            programa = Programa.objects.create(
-                codigo=self.cleaned_data['codigo'],
-                nombre=self.cleaned_data['nombre'],
-                nivel_formacion=self.cleaned_data.get('nivel_formacion'),
-                modalidad=self.cleaned_data.get('modalidad'),
-                duracion_meses=self.cleaned_data['duracion_meses'],
-                duracion_horas=self.cleaned_data['duracion_horas'],
-                centro_formacion=self.cleaned_data['centro_formacion'],
-                regional=self.cleaned_data['regional'],
-                estado=self.cleaned_data.get('estado'),
-                fecha_creacion=self.cleaned_data['fecha_creacion'],
-                fecha_registro=self.cleaned_data['fecha_registro']
-            )
-            return programa
-        except Exception as e:
-            raise forms.ValidationError(f"Error al creae el programa: {str(e)}")
+         Programa.objects.create(
+            codigo=self.cleaned_data['codigo'],
+            nombre=self.cleaned_data['nombre'],
+            nivel_formacion=self.cleaned_data.get('nivel_formacion'),
+            modalidad=self.cleaned_data.get('modalidad'),
+            duracion_meses=self.cleaned_data['duracion_meses'],
+            duracion_horas=self.cleaned_data['duracion_horas'],
+            centro_formacion=self.cleaned_data['centro_formacion'],
+            regional=self.cleaned_data['regional'],
+            estado=self.cleaned_data.get('estado'),
+            fecha_creacion=self.cleaned_data['fecha_creacion'],
+            fecha_registro=self.cleaned_data['fecha_registro']
+        )
