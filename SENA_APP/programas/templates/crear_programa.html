@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block title%}SENA-APP - Agregar Programa{% endblock %}
+
+{% block content %}
+
+<div class="card" style="width: 50rem; border-radius: 15px; display: flex; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; max-width: 1200px; margin: 0 auto; width: 30%; padding: 20px 15px; background: white; ">
+  <div class="card-body">
+    <h5 class="card-title" style="text-align: center; color: #117C24; font-size: 30px;">Agregar Programa</h5>
+    <hr>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.codigo.label }}<span class="text-danger">*</span></label>
+                {{ form.codigo}}
+            </div>
+            <br>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.nombre.label }}<span class="text-danger">*</span></label>
+                {{ form.nombre}}
+            </div>
+        </div>
+
+        <br>
+
+        <div>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.nivel_formacion.label }}<span class="text-danger">*</span></label>
+                <select>
+                    <option value="">Seleccione el nivel</option>
+                    <option value='AUX'>Auxiliar</option>
+                    <option value='OPE'>Operario</option>
+                    <option value='TEC'>Técnico</option>
+                    <option value='TGL'>Tecnólogo</option>
+                    <option value='ESP'>Especialización</option>
+                    <option value='COM'>Complementario</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.modalidad.label }}<span class="text-danger">*</span></label>
+                <select>
+                    <option value="">Seleccione la modalidad</option>
+                    <option value='PRE'>Presencial</option>
+                    <option value='VIR'>Virtual</option>
+                    <option value='MIX'>Mixta</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.duracion_meses.label }}<span class="text-danger">*</span></label>
+                {{ form.duracion_meses}}
+            </div>
+            <br>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.duracion_horas.label }}<span class="text-danger">*</span></label>
+                {{ form.duracion_horas}}
+            </div>
+        </div>
+        <br>
+        <div>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.centro_formacion.label }}<span class="text-danger">*</span></label>
+                {{ form.centro_formacion}}
+            </div>
+            <br>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.regional.label }}<span class="text-danger">*</span></label>
+                {{ form.regional}}
+            </div>
+            <br>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.estado.label }}<span class="text-danger">*</span></label>
+                <select>
+                    <option value="">Seleccione el estado</option>
+                    <option value='ACT'>Activo</option>
+                    <option value='INA'>Inactivo</option>
+                    <option value='SUS'>Suspendido</option>
+                    <option value='CAN'>Cancelado</option>
+                </select>
+            </div>
+            <br>
+            <div>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.fecha_creacion.label }}<span class="text-danger">*</span></label>
+                {{ form.fecha_creacion}}
+            </div>
+            <br>
+            <div>
+                <label style="display: inline-block;width: 200px; text-align: left; margin-right: 10px; vertical-align: top;">{{ form.fecha_registro.label }}<span class="text-danger">*</span></label>
+                {{ form.fecha_registro}}
+            </div>
+        </div>
+        </div>
+        <br>
+        <div style="text-align: center;">
+            <a href="{% url 'programas:lista_programas' %}" style="margin-right: 15px;">
+                <i></i>Cancelar
+            </a>
+            <button class="btn btn-primary"><i></i>Guardar Programa</button>
+        </div>
+    </form>
+    
+    <div class="mt-3">
+    <small class="text-muted">
+        <i class="fas fa-info-circle"></i> 
+        Los campos marcados con <span class="text-danger">*</span> son obligatorios.
+    </small>
+</div>
+
+  </div>
+</div>
+
+
+
+{% endblock %}

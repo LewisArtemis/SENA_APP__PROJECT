@@ -1,0 +1,7 @@
+#Instalacion de dependencias para el proyecto Django:
+
+Django==5.2.4
+ipython==9.4.0
+
+#para ejecutar las dependencias, ejecutar:
+#pip install -r requirements.txt

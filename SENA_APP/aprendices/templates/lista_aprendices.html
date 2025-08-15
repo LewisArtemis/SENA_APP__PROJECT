@@ -5,6 +5,17 @@
 {% block content%}
 
 {% if lista_aprendices %}
+
+
+<div class="card-body">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a href="{% url 'aprendices:crear_aprendiz' %}"><button class="btn btn-primary me-md-2" type="button">Nuevo Aprendiz</button></a>
+  </div>
+</div>
+
+
+
+
 <div>
 <ul>
   {% for x in lista_aprendices %}

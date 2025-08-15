@@ -5,6 +5,13 @@
 
 {% block content %}
 
+<div class="card-body">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a href="{% url 'programas:crear_programa' %}"><button class="btn btn-primary me-md-2" type="button">Nuevo Programa</button></a>
+  </div>
+</div>
+
+
 {% if lista_programas %}
 <ul>
 {% for x in lista_programas %}

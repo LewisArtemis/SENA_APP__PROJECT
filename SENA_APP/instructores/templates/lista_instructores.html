@@ -6,6 +6,13 @@
 
 {% if lista_instructores %}
 
+<div class="card-body">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a href="{% url 'instructores:crear_instructor' %}"><button class="btn btn-primary me-md-2" type="button">Nuevo Instructor</button></a>
+  </div>
+</div>
+
+
 <div>
 
 <ul>
